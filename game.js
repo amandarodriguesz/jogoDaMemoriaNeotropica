@@ -31,6 +31,8 @@ function ScoreBoardGameControl (){
 	}
 }
 
+
+
 function Card(picture){
 	var FOLDER_IMAGES = 'resources/'
 	var IMAGE_QUESTION  = "question.png"
@@ -40,10 +42,119 @@ function Card(picture){
 
 	this.equals =  function (cardGame){
 		if (this.picture.valueOf() == cardGame.picture.valueOf()){
+			//var textWrapper = document.querySelector('.ml6 .letter');
+			var textWrapper = document.getElementById("text-wrapper");
+			if(this.picture.valueOf()=='1.png'){
+				textWrapper.innerHTML = "<span class='letters'>Parabéns, você encontrou o Papagaio-verdadeiro ! &#x1F3C6; </span>"
+				anime.timeline({loop: true})
+				.add({
+					targets: '.ml6 .letter',
+					translateY: ["1.1em", 0],
+					translateZ: 0,
+					duration: 750,
+					delay: (el, i) => 50 * i
+				}).add({
+					targets: '.ml6',
+					opacity: 0,
+					duration: 1000,
+					easing: "easeOutExpo",
+					delay: 1000
+				});
+				//alert('Parabéns, você encontrou o Papagaio-verdadeiro ! ');
+			}if(this.picture.valueOf()=='2.png'){
+				textWrapper.innerHTML = "<span class='letters'>Parabéns, você encontrou o Araçari-castanho ! &#x1F3C6; </span>"
+				anime.timeline({loop: true})
+				.add({
+					targets: '.ml6 .letter',
+					translateY: ["1.1em", 0],
+					translateZ: 0,
+					duration: 750,
+					delay: (el, i) => 50 * i
+				}).add({
+					targets: '.ml6',
+					opacity: 0,
+					duration: 1000,
+					easing: "easeOutExpo",
+					delay: 1000
+				});
+				//alert('Parabéns, você encontrou o Araçari-castanho ! ');
+			}if(this.picture.valueOf()=='3.png'){
+				textWrapper.innerHTML = "<span class='letters'>Parabéns, você encontrou a Arara-azul ! &#x1F3C6; </span>";
+				anime.timeline({loop: true})
+				.add({
+					targets: '.ml6 .letter',
+					translateY: ["1.1em", 0],
+					translateZ: 0,
+					duration: 750,
+					delay: (el, i) => 50 * i
+				}).add({
+					targets: '.ml6',
+					opacity: 0,
+					duration: 1000,
+					easing: "easeOutExpo",
+					delay: 1000
+				});
+				//alert('Parabéns, você encontrou a Arara-azul ! ');
+			}if(this.picture.valueOf()=='4.png'){
+				textWrapper.innerHTML =  "<span class='letters'>Parabéns, você encontrou a Arara-vermelha ! &#x1F3C6; </span>";
+				anime.timeline({loop: true})
+				.add({
+					targets: '.ml6 .letter',
+					translateY: ["1.1em", 0],
+					translateZ: 0,
+					duration: 750,
+					delay: (el, i) => 50 * i
+				}).add({
+					targets: '.ml6',
+					opacity: 0,
+					duration: 1000,
+					easing: "easeOutExpo",
+					delay: 1000
+				});
+				//alert('Parabéns, você encontrou a Arara-vermelha ! ');
+			}if(this.picture.valueOf()=='5.png'){
+				textWrapper.innerHTML = "<span class='letters'>Parabéns, você encontrou o Gavião-real !  &#x1F3C6; </span>";
+				anime.timeline({loop: true})
+				.add({
+					targets: '.ml6 .letter',
+					translateY: ["1.1em", 0],
+					translateZ: 0,
+					duration: 750,
+					delay: (el, i) => 50 * i
+				}).add({
+					targets: '.ml6',
+					opacity: 0,
+					duration: 1000,
+					easing: "easeOutExpo",
+					delay: 1000
+				});
+				//alert('Parabéns, você encontrou o Gavião-real ! ');
+			}if(this.picture.valueOf()=='6.png'){
+				textWrapper.innerHTML ="<span class='letters'>Parabéns, você encontrou o Gavião-carijó ! &#x1F3C6; </span>";
+				anime.timeline({loop: true})
+				.add({
+					targets: '.ml6 .letter',
+					translateY: ["1.1em", 0],
+					translateZ: 0,
+					duration: 750,
+					delay: (el, i) => 50 * i
+				}).add({
+					targets: '.ml6',
+					opacity: 0,
+					duration: 1000,
+					easing: "easeOutExpo",
+					delay: 1000
+				});
+				//alert('Parabéns, você encontrou o Gavião-carijó ! ');
+			}
 			return true;
 		}
 		return false;
 	}
+	
+	//this.adicionaToltip = function(){
+		//return
+	//}
 	this.getPathCardImage =  function(){
 		return FOLDER_IMAGES+picture;
 	}
@@ -62,7 +173,7 @@ function ControllerLogicGame(){
 	this.addEventListener =  function (eventName, callback){
 		eventController[eventName] = callback;
 	};
-
+	
 	this.doLogicGame =  function (card,callback){
 		if (!card.block && !block) {
 			if (firstSelected == null){
@@ -165,6 +276,7 @@ function BuilderCardGame(){
 		'5.png','5.png',
 		'6.png','6.png');
 
+
 	this.doCardGame =  function (){
 		shufflePictures();
 		cards  = buildCardGame();
@@ -204,6 +316,9 @@ GameControl.createGame = function(){
 	var builderCardGame =  new BuilderCardGame();
 	cardGame = builderCardGame.doCardGame();
 	cardGame.show();
+	var textin = document.getElementById("text-wrapper");
+	textin.innerHTML = "";
+
 }
 
 function abreModal() {
