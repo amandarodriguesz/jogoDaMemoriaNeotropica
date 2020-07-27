@@ -32,7 +32,6 @@ function ScoreBoardGameControl (){
 }
 
 
-
 function Card(picture){
 	var FOLDER_IMAGES = 'resources/'
 	var IMAGE_QUESTION  = "question.png"
@@ -43,109 +42,22 @@ function Card(picture){
 	this.equals =  function (cardGame){
 		if (this.picture.valueOf() == cardGame.picture.valueOf()){
 			//var textWrapper = document.querySelector('.ml6 .letter');
-			var textWrapper = document.getElementById("text-wrapper");
+			var textWrapper = document.getElementById("nomePassaro");
+			textWrapper.style='visibility: visible';
 			if(this.picture.valueOf()=='1.png'){
-				textWrapper.innerHTML = "<span class='letters'>Parabéns, você encontrou o Papagaio-verdadeiro ! &#x1F3C6; </span>"
-				anime.timeline({loop: true})
-				.add({
-					targets: '.ml6 .letter',
-					translateY: ["1.1em", 0],
-					translateZ: 0,
-					duration: 750,
-					delay: (el, i) => 50 * i
-				}).add({
-					targets: '.ml6',
-					opacity: 0,
-					duration: 1000,
-					easing: "easeOutExpo",
-					delay: 1000
-				});
-				//alert('Parabéns, você encontrou o Papagaio-verdadeiro ! ');
+				$(".alert").alert();
+				textWrapper.innerHTML ="Parabéns, você encontrou o Papagaio-verdadeiro ! &#x1F3C6; ";
 			}if(this.picture.valueOf()=='2.png'){
-				textWrapper.innerHTML = "<span class='letters'>Parabéns, você encontrou o Araçari-castanho ! &#x1F3C6; </span>"
-				anime.timeline({loop: true})
-				.add({
-					targets: '.ml6 .letter',
-					translateY: ["1.1em", 0],
-					translateZ: 0,
-					duration: 750,
-					delay: (el, i) => 50 * i
-				}).add({
-					targets: '.ml6',
-					opacity: 0,
-					duration: 1000,
-					easing: "easeOutExpo",
-					delay: 1000
-				});
+				textWrapper.innerHTML ="<span class='letters'>Parabéns, você encontrou o Araçari-castanho ! &#x1F3C6; </span>";
 				//alert('Parabéns, você encontrou o Araçari-castanho ! ');
 			}if(this.picture.valueOf()=='3.png'){
-				textWrapper.innerHTML = "<span class='letters'>Parabéns, você encontrou a Arara-azul ! &#x1F3C6; </span>";
-				anime.timeline({loop: true})
-				.add({
-					targets: '.ml6 .letter',
-					translateY: ["1.1em", 0],
-					translateZ: 0,
-					duration: 750,
-					delay: (el, i) => 50 * i
-				}).add({
-					targets: '.ml6',
-					opacity: 0,
-					duration: 1000,
-					easing: "easeOutExpo",
-					delay: 1000
-				});
-				//alert('Parabéns, você encontrou a Arara-azul ! ');
+				textWrapper.innerHTML ="<span class='letters'>Parabéns, você encontrou a Arara-azul ! &#x1F3C6; </span>";
 			}if(this.picture.valueOf()=='4.png'){
-				textWrapper.innerHTML =  "<span class='letters'>Parabéns, você encontrou a Arara-vermelha ! &#x1F3C6; </span>";
-				anime.timeline({loop: true})
-				.add({
-					targets: '.ml6 .letter',
-					translateY: ["1.1em", 0],
-					translateZ: 0,
-					duration: 750,
-					delay: (el, i) => 50 * i
-				}).add({
-					targets: '.ml6',
-					opacity: 0,
-					duration: 1000,
-					easing: "easeOutExpo",
-					delay: 1000
-				});
-				//alert('Parabéns, você encontrou a Arara-vermelha ! ');
+				textWrapper.innerHTML ="<span class='letters'>Parabéns, você encontrou a Arara-vermelha ! &#x1F3C6; </span>";
 			}if(this.picture.valueOf()=='5.png'){
-				textWrapper.innerHTML = "<span class='letters'>Parabéns, você encontrou o Gavião-real !  &#x1F3C6; </span>";
-				anime.timeline({loop: true})
-				.add({
-					targets: '.ml6 .letter',
-					translateY: ["1.1em", 0],
-					translateZ: 0,
-					duration: 750,
-					delay: (el, i) => 50 * i
-				}).add({
-					targets: '.ml6',
-					opacity: 0,
-					duration: 1000,
-					easing: "easeOutExpo",
-					delay: 1000
-				});
-				//alert('Parabéns, você encontrou o Gavião-real ! ');
+				textWrapper.innerHTML ="<span class='letters'>Parabéns, você encontrou o Gavião-real !  &#x1F3C6; </span>";
 			}if(this.picture.valueOf()=='6.png'){
 				textWrapper.innerHTML ="<span class='letters'>Parabéns, você encontrou o Gavião-carijó ! &#x1F3C6; </span>";
-				anime.timeline({loop: true})
-				.add({
-					targets: '.ml6 .letter',
-					translateY: ["1.1em", 0],
-					translateZ: 0,
-					duration: 750,
-					delay: (el, i) => 50 * i
-				}).add({
-					targets: '.ml6',
-					opacity: 0,
-					duration: 1000,
-					easing: "easeOutExpo",
-					delay: 1000
-				});
-				//alert('Parabéns, você encontrou o Gavião-carijó ! ');
 			}
 			return true;
 		}
@@ -316,8 +228,9 @@ GameControl.createGame = function(){
 	var builderCardGame =  new BuilderCardGame();
 	cardGame = builderCardGame.doCardGame();
 	cardGame.show();
-	var textin = document.getElementById("text-wrapper");
-	textin.innerHTML = "";
+
+	var textWrapper = document.getElementById("nomePassaro");
+	textWrapper.style='visibility: hidden';
 
 }
 

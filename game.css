@@ -2,6 +2,9 @@
     background-color: #EFEDE1;
 }
 
+#nomePassaro{
+  visibility: collapse;
+}
 img {
  
     width: 240px;
@@ -11,6 +14,7 @@ img {
 .ml6 {
     position: relative;
     font-weight: 900;
+    font-size: 3.3em;
   }
   
   .ml6 .text-wrapper {
@@ -26,4 +30,3 @@ img {
     display: inline-block;
     line-height: 1em;
   }
-
