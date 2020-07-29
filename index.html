@@ -14,15 +14,15 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 </head>
-<body onload="GameControl.createGame()" class="corpo">
-<div  id="main" class="main container">
+<body onload="GameControl.createGame()" class="corpo container">
+<div  id="main" class="main">
 	<div class="row">
 		<h5 class="display-4 text-center"> Jogo da Memória -
 		<small> Aves da Serra da Bodoquena </small></h5>
 			
 	</div>
 
-		<div id="nomePassaro" class="alert alert-success row" role="alert">
+		<div id="nomePassaro" class="alert alert-success font-weight-bold" role="alert">
 
 	</div>
 	 
@@ -41,8 +41,7 @@
 			<b id="tentativa"></b>
 		</div>
 	</div>
-	<!--<div id="score" class="col"></div>
-	</div>-->
+
 	<div id="game">
 	</div>
 	
@@ -69,7 +68,7 @@
 		</div>
 		<div class="modal-footer">
 		  <button type="button" class="btn btn-success"value="Reiniciar" onclick="GameControl.createGame()" data-dismiss="modal">Jogar Novamente!</button>
-		  <button type="button" class="btn btn-secondary" href="https://www.fundacaoneotropica.org.br/">Conhecer mais sobre os projetos da FNB</button>
+		  <a class="btn btn-secondary" href="https://www.fundacaoneotropica.org.br/">Conhecer mais sobre os projetos da FNB</a>
 		</div>
 	  </div>
 	</div>

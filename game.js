@@ -3,7 +3,7 @@ function ScoreBoardGameControl (){
 	var POINT_GAME = 10;
 	var TEXT_SCORE = "Sua pontuação: "
 	var TENTATIVAS=0;
-	var TOTAL_CORRECT = 60;
+	var TOTAL_CORRECT = 80;
 	var corrects = 0;
 
 	this.updateScore =  function (){
@@ -19,7 +19,7 @@ function ScoreBoardGameControl (){
 		corrects++;
 		TENTATIVAS++;
 		score+= POINT_GAME;
-		if (corrects ==  6){
+		if (corrects ==  8){
 			//alert("Fim de jogo! Parabéns!");
 			setTimeout(abreModal, 1000);
 		}
@@ -34,7 +34,7 @@ function ScoreBoardGameControl (){
 
 function Card(picture){
 	var FOLDER_IMAGES = 'resources/'
-	var IMAGE_QUESTION  = "question.png"
+	var IMAGE_QUESTION  = "question.jpg"
 	this.picture = picture;
 	this.visible = false;
 	this.block = false;
@@ -44,20 +44,22 @@ function Card(picture){
 			//var textWrapper = document.querySelector('.ml6 .letter');
 			var textWrapper = document.getElementById("nomePassaro");
 			textWrapper.style='visibility: visible';
-			if(this.picture.valueOf()=='1.png'){
-				$(".alert").alert();
+			if(this.picture.valueOf()=='1.jpg'){
 				textWrapper.innerHTML ="Parabéns, você encontrou o Papagaio-verdadeiro ! &#x1F3C6; ";
-			}if(this.picture.valueOf()=='2.png'){
-				textWrapper.innerHTML ="<span class='letters'>Parabéns, você encontrou o Araçari-castanho ! &#x1F3C6; </span>";
-				//alert('Parabéns, você encontrou o Araçari-castanho ! ');
-			}if(this.picture.valueOf()=='3.png'){
-				textWrapper.innerHTML ="<span class='letters'>Parabéns, você encontrou a Arara-azul ! &#x1F3C6; </span>";
-			}if(this.picture.valueOf()=='4.png'){
-				textWrapper.innerHTML ="<span class='letters'>Parabéns, você encontrou a Arara-vermelha ! &#x1F3C6; </span>";
-			}if(this.picture.valueOf()=='5.png'){
-				textWrapper.innerHTML ="<span class='letters'>Parabéns, você encontrou o Gavião-real !  &#x1F3C6; </span>";
-			}if(this.picture.valueOf()=='6.png'){
-				textWrapper.innerHTML ="<span class='letters'>Parabéns, você encontrou o Gavião-carijó ! &#x1F3C6; </span>";
+			}if(this.picture.valueOf()=='2.jpg'){
+				textWrapper.innerHTML ="Parabéns, você encontrou o Araçari-castanho ! &#x1F3C6; ";
+			}if(this.picture.valueOf()=='3.jpg'){
+				textWrapper.innerHTML ="Parabéns, você encontrou a Arara-azul ! &#x1F3C6;";
+			}if(this.picture.valueOf()=='4.jpg'){
+				textWrapper.innerHTML ="Parabéns, você encontrou a Arara-vermelha ! &#x1F3C6; ";
+			}if(this.picture.valueOf()=='5.jpg'){
+				textWrapper.innerHTML ="Parabéns, você encontrou a Harpia !  &#x1F3C6;";
+			}if(this.picture.valueOf()=='6.jpg'){
+				textWrapper.innerHTML ="Parabéns, você encontrou o Gavião-carijó ! &#x1F3C6;";
+			}if(this.picture.valueOf()=='7.jpg'){
+				textWrapper.innerHTML ="Parabéns, você encontrou a Harpia ! &#x1F3C6;";
+			}if(this.picture.valueOf()=='8.jpg'){
+				textWrapper.innerHTML ="Parabéns, você encontrou o Udu! &#x1F3C6; ";
 			}
 			return true;
 		}
@@ -122,7 +124,7 @@ function ControllerLogicGame(){
 }
 
 function CardGame (cards , controllerLogicGame,scoreBoard){
-	var LINES = 3;
+	var LINES = 4;
 	var COLS  = 4;
 	this.cards = cards;
 	var logicGame = controllerLogicGame;
@@ -142,12 +144,15 @@ function CardGame (cards , controllerLogicGame,scoreBoard){
 			for(var j = 0 ; j < COLS; j++){
 				card = cards[cardCount++];
 				var cardImage = document.createElement("img");
+				cardImage.className="responsive rounded mr-1 mt-1";
 				if (card.visible){
-					cardImage.setAttribute("class","responsive rounded mr-1 mt-1");
-					cardImage.setAttribute("src",card.getPathCardImage());
+					cardImage.src=card.getPathCardImage();
+					//cardImage.setAttribute("class","responsive rounded mr-1 mt-1");
+					//cardImage.setAttribute("src",card.getPathCardImage());
 				}else{
-					cardImage.setAttribute("class","responsive rounded mr-1 mt-1");
-					cardImage.setAttribute("src",card.getQuestionImage());
+					cardImage.src=card.getQuestionImage();
+					//cardImage.setAttribute("class","responsive rounded mr-1 mt-1");
+					//cardImage.setAttribute("src",card.getQuestionImage());
 				}
 				cardImage.onclick =  (function(position,cardGame) {
 					return function() {
@@ -181,12 +186,14 @@ function CardGame (cards , controllerLogicGame,scoreBoard){
 }
 
 function BuilderCardGame(){
-	var pictures = new Array ('1.png','1.png',
-		'2.png','2.png',
-		'3.png','3.png',
-		'4.png','4.png',
-		'5.png','5.png',
-		'6.png','6.png');
+	var pictures = new Array ('1.jpg','1.jpg',
+		'2.jpg','2.jpg',
+		'3.jpg','3.jpg',
+		'4.jpg','4.jpg',
+		'5.jpg','5.jpg',
+		'6.jpg','6.jpg',
+		'7.jpg','7.jpg',
+		'8.jpg','8.jpg');
 
 
 	this.doCardGame =  function (){
