@@ -45,21 +45,21 @@ function Card(picture){
 			var textWrapper = document.getElementById("nomePassaro");
 			textWrapper.style='visibility: visible';
 			if(this.picture.valueOf()=='1.jpg'){
-				textWrapper.innerHTML ="Parabéns, você encontrou o Papagaio-verdadeiro ! &#x1F3C6; ";
+				textWrapper.innerHTML ="Você encontrou o Papagaio-verdadeiro (Amazona aestiva)! &#x1F3C6; ";
 			}if(this.picture.valueOf()=='2.jpg'){
-				textWrapper.innerHTML ="Parabéns, você encontrou o Araçari-castanho ! &#x1F3C6; ";
+				textWrapper.innerHTML ="Você encontrou o Araçari-castanho (Pteroglossus castanotis)! &#x1F3C6; ";
 			}if(this.picture.valueOf()=='3.jpg'){
-				textWrapper.innerHTML ="Parabéns, você encontrou a Arara-azul ! &#x1F3C6;";
+				textWrapper.innerHTML ="Você encontrou a Arara-azul (Anodorhynchus hyacinthinus)! &#x1F3C6;";
 			}if(this.picture.valueOf()=='4.jpg'){
-				textWrapper.innerHTML ="Parabéns, você encontrou a Arara-vermelha ! &#x1F3C6; ";
+				textWrapper.innerHTML ="Você encontrou a Arara-vermelha (Ara chloropterus)! &#x1F3C6; ";
 			}if(this.picture.valueOf()=='5.jpg'){
-				textWrapper.innerHTML ="Parabéns, você encontrou a Harpia !  &#x1F3C6;";
+				textWrapper.innerHTML ="Você encontrou o Gavião-real (Harpia harpyia)!  &#x1F3C6;";
 			}if(this.picture.valueOf()=='6.jpg'){
-				textWrapper.innerHTML ="Parabéns, você encontrou o Gavião-carijó ! &#x1F3C6;";
+				textWrapper.innerHTML ="Você encontrou o Gavião-carijó (Rupornis magnirostris)! &#x1F3C6;";
 			}if(this.picture.valueOf()=='7.jpg'){
-				textWrapper.innerHTML ="Parabéns, você encontrou a Harpia ! &#x1F3C6;";
+				textWrapper.innerHTML ="Você encontrou o Gavião-real (Harpia harpyia)! &#x1F3C6;";
 			}if(this.picture.valueOf()=='8.jpg'){
-				textWrapper.innerHTML ="Parabéns, você encontrou o Udu! &#x1F3C6; ";
+				textWrapper.innerHTML ="Você encontrou o Udu-de-coroa-azul (Momotus momota)! &#x1F3C6; ";
 			}
 			return true;
 		}
@@ -122,19 +122,16 @@ function ControllerLogicGame(){
 	};
 
 }
-
 function CardGame (cards , controllerLogicGame,scoreBoard){
 	var LINES = 4;
 	var COLS  = 4;
 	this.cards = cards;
 	var logicGame = controllerLogicGame;
 	var scoreBoardGameControl = scoreBoard;
-
 	this.clear = function (){
 		var game = document.getElementById("game");
 		game.innerHTML = '';
 	}
-
 	this.show =  function (){
 		this.clear();
 		scoreBoardGameControl.updateScore();
@@ -147,12 +144,8 @@ function CardGame (cards , controllerLogicGame,scoreBoard){
 				cardImage.className="responsive rounded mr-1 mt-1";
 				if (card.visible){
 					cardImage.src=card.getPathCardImage();
-					//cardImage.setAttribute("class","responsive rounded mr-1 mt-1");
-					//cardImage.setAttribute("src",card.getPathCardImage());
 				}else{
 					cardImage.src=card.getQuestionImage();
-					//cardImage.setAttribute("class","responsive rounded mr-1 mt-1");
-					//cardImage.setAttribute("src",card.getQuestionImage());
 				}
 				cardImage.onclick =  (function(position,cardGame) {
 					return function() {
@@ -184,7 +177,6 @@ function CardGame (cards , controllerLogicGame,scoreBoard){
 		}
 	}
 }
-
 function BuilderCardGame(){
 	var pictures = new Array ('1.jpg','1.jpg',
 		'2.jpg','2.jpg',
@@ -194,8 +186,6 @@ function BuilderCardGame(){
 		'6.jpg','6.jpg',
 		'7.jpg','7.jpg',
 		'8.jpg','8.jpg');
-
-
 	this.doCardGame =  function (){
 		shufflePictures();
 		cards  = buildCardGame();
@@ -203,7 +193,6 @@ function BuilderCardGame(){
 		cardGame.clear();
 		return cardGame;
 	}
-
 	var shufflePictures = function(){
 		var i = pictures.length, j, tempi, tempj;
 		if ( i == 0 ) return false;
@@ -215,7 +204,6 @@ function BuilderCardGame(){
 			pictures[j] = tempi;
 		}
 	}
-
 	var buildCardGame =  function (){
 		var countCards = 0;
 		cards =  new Array();
@@ -246,4 +234,3 @@ function abreModal() {
 	  show: true
 	});
   }
-  
